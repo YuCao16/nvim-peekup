@@ -79,12 +79,12 @@ local function floating_window(geometry)
 	  col = math.ceil(total_width - win_width)/2 - 1
    }
    local border_buf = vim.api.nvim_create_buf(false, true)
-   local border_lines = { '╔' .. string.rep('═', win_width) .. '╗' }
-   local middle_line = '║' .. string.rep(' ', win_width) .. '║'
+   local border_lines = { '╭' .. string.rep('─', win_width) .. '╮' }
+   local middle_line = '│' .. string.rep(' ', win_width) .. '│'
    for _=1, win_height do
 	  table.insert(border_lines, middle_line)
    end
-   table.insert(border_lines, '╚'..string.rep('═', win_width - (#geometry.name + 2) )..' '..geometry.name..' '..'╝')
+   table.insert(border_lines, '╰'..string.rep('─', win_width - (#geometry.name + 2) )..' '..geometry.name..' '..'╯')
    vim.api.nvim_buf_set_lines(border_buf, 0, -1, false, border_lines)
 
    vim.api.nvim_open_win(border_buf, true, border_opts)
