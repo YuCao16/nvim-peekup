@@ -115,14 +115,14 @@ local function on_keystroke(key, paste_where)
 		vim.cmd(":silent! /^" .. search_key .. ":")
 		vim.cmd(":noh")
 		vim.cmd('execute "normal! ^f:' .. config.on_keystroke.padding + 1 .. 'lvg_"')
-		vim.cmd("redraw")
+		-- vim.cmd("redraw")
 		if config.on_keystroke.delay ~= "" then
 			vim.cmd("sleep " .. config.on_keystroke.delay)
 		end
 		vim.cmd('execute "normal! \\<Esc>^"')
 		vim.cmd("let @" .. config.on_keystroke.paste_reg .. "=@" .. key)
 		if config.on_keystroke.autoclose then
-			vim.cmd("redraw")
+			-- vim.cmd("redraw")
 			if config.on_keystroke.delay ~= "" then
 				vim.cmd("sleep " .. config.on_keystroke.delay)
 			end
